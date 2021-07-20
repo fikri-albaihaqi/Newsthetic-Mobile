@@ -8,8 +8,6 @@
   tools:context=".DetailBeritaActivity"
   android:background="@color/background">
 
-<<<<<<< Updated upstream
-=======
 
     <ScrollView
       android:layout_width="match_parent"
