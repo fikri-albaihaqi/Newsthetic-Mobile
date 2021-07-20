@@ -1,6 +1,8 @@
 package com.example.newsthetic.model;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.newsthetic.DetailBeritaActivity;
 import com.example.newsthetic.R;
 import com.squareup.picasso.Picasso;
 
@@ -44,6 +47,24 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         Picasso.get().load(articles.get(position).getUrlToImage())
                 .resize(85, 65)
                 .into(holder.gambar);
+
+        holder.judul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle =new Bundle();
+                bundle.putString("title",articles.get(position).getTitle());
+                bundle.putString("time",articles.get(position).getPublishedAt());
+                bundle.putString("image",articles.get(position).getUrlToImage());
+                bundle.putString("publisher",articles.get(position).getSource().getName());
+                bundle.putString("author",articles.get(position).getAuthor());
+                bundle.putString("description",articles.get(position).getDescription());
+                bundle.putString("url",articles.get(position).getUrl());
+
+                Intent intent = new Intent(v.getContext(), DetailBeritaActivity.class);
+                intent.putExtras(bundle);
+                v.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
