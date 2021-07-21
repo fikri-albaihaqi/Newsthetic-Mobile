@@ -46,12 +46,6 @@ public class NewsAdapter extends ListAdapter<NewsResponse, NewsViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull NewsViewHolder holder, int position) {
-//        holder.judul.setText(articles.get(position).getTitle().toString());
-//        holder.tanggal.setText(articles.get(position).getPublishedAt().toString());
-//        holder.publisher.setText(articles.get(position).getSource().getName().toString());
-//        Picasso.get().load(articles.get(position).getUrlToImage())
-//                .resize(120, 90)
-//                .into(holder.gambar);
         holder.bind(articles.get(position).getTitle(),
                 articles.get(position).getPublishedAt(),
                 articles.get(position).getSource().getName(),
@@ -61,7 +55,7 @@ public class NewsAdapter extends ListAdapter<NewsResponse, NewsViewHolder> {
         holder.judul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle bundle =new Bundle();
+                Bundle bundle = new Bundle();
                 bundle.putString("title",articles.get(position).getTitle());
                 bundle.putString("time",articles.get(position).getPublishedAt());
                 bundle.putString("image",articles.get(position).getUrlToImage());
@@ -88,18 +82,4 @@ public class NewsAdapter extends ListAdapter<NewsResponse, NewsViewHolder> {
             return oldItem.getArticles().equals(newItem.getArticles());
         }
     }
-
-//    public class NewsViewHolder extends RecyclerView.ViewHolder {
-//        TextView judul, tanggal, publisher;
-//        ImageView gambar;
-//
-//        public NewsViewHolder(@NonNull View itemView) {
-//            super(itemView);
-//
-//            judul = itemView.findViewById(R.id.judul);
-//            tanggal = itemView.findViewById(R.id.tanggal);
-//            publisher = itemView.findViewById(R.id.publisher);
-//            gambar = itemView.findViewById(R.id.gambar);
-//        }
-//    }
 }

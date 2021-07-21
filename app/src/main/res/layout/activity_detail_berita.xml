@@ -93,7 +93,6 @@
                 android:fontFamily="@font/mulish"
                 android:text='          Prosesi tersebut dilakukan seusai pertandingan Liverpool vs Chelsea, yang merupakan laga kandang terakhir Liverpool pada Premier League, kasta teratas Liga Inggris, musim ini. Lebih spesial lagi, laga Liverpool vs Chelsea itu pun berakhir untuk kemenangan Si Merah dengan skor 5-3, alias dalam drama delapan gol yang tercipta. Hasil tersebut pun seakan menjadi "obat" bagi Liverpool yang merayakan gelar juara Liga Inggris tak biasanya, tanpa kehadiran fans, karena terkait protokol menyikapi pandemi virus corona. '
                 android:textColor="@color/white"
-                android:textSize="10sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -145,13 +144,15 @@
 
             <TextView
                 android:id="@+id/urlDetail"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 android:text="TextView"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toTopOf="@+id/button_selanjutnya"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

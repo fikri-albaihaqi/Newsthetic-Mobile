@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
   NewsViewModel newsViewModel;
   EditText search;
   String country;
-  Button cari;
   List<NewsArticle> newsArticles;
   TextView judul_berita, tanggal_berita, publisher_berita;
   ImageView gambar_berita;
@@ -44,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
 
     recyclerView = findViewById(R.id.list_berita);
     search = findViewById(R.id.search);
-//    cari = findViewById(R.id.cari);
     country = "id";
     newsViewModel = new ViewModelProvider(this).get(NewsViewModel.class);
     judul_berita = findViewById(R.id.judul_berita);
@@ -70,15 +68,6 @@ public class MainActivity extends AppCompatActivity {
         }
       }
     });
-
-//    cari.setOnClickListener(new View.OnClickListener() {
-//      @Override
-//      public void onClick(View v) {
-//        newsViewModel.init();
-//        loadSearchResult(search.getText().toString());
-//        search.setText("");
-//      }
-//    });
   }
 
   public void loadNews(String country) {
@@ -86,32 +75,24 @@ public class MainActivity extends AppCompatActivity {
     newsViewModel.getNews(country).observe(this, newsResponse -> {
       List<NewsArticle> newsArticles = newsResponse.getArticles();
       articleArrayList.clear();
-      Log.e("Isinya1", articleArrayList.toString());
       articleArrayList.addAll(newsArticles);
-      Log.e("Isinya", articleArrayList.toString());
       newsAdapter.notifyDataSetChanged();
-      Log.e("Panjang", String.valueOf(newsAdapter.getItemCount()));
       loadHeadlines(articleArrayList);
     });
     setupRecyclerView();
   }
 
   public void loadSearchResult(String search) {
-//    newsViewModel = ViewModelProviders.of(this).get(NewsViewModel.class);
     newsViewModel.getNewsBySearch(search).observe(this, newsResponse -> {
       newsArticles = newsResponse.getArticles();
       articleArrayList.clear();
-      Log.e("Isinya1", articleArrayList.toString());
       articleArrayList.addAll(newsArticles);
       newsAdapter.notifyDataSetChanged();
-      Log.e("Isinya", articleArrayList.toString());
-      Log.e("Panjang", String.valueOf(newsAdapter.getItemCount()));
     });
     setupRecyclerView();
   }
 
   public void loadHeadlines(ArrayList<NewsArticle> headline) {
-    Log.e("Headline", headline.get(0).toString());
     judul_berita.setText(articleArrayList.get(0).getTitle());
     tanggal_berita.setText(articleArrayList.get(0).getPublishedAt());
     publisher_berita.setText(articleArrayList.get(0).getSource().getName());

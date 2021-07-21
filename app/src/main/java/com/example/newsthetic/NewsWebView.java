@@ -41,7 +41,6 @@ public class NewsWebView extends AppCompatActivity {
 
             @Override
             public void onPageStarted(WebView view, String urlStart, Bitmap favicon) {
-                //mProgressBar.setProgress(0);
                 url = urlStart;
                 invalidateOptionsMenu();
             }
