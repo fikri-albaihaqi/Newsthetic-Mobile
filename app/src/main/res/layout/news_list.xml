@@ -36,7 +36,7 @@
                 android:fontFamily="@font/mulish"
                 android:text="Rencana Perpanjangan PPKM Darurat Bikin Pengusaha Pusing"
                 android:textColor="@color/white"
-                android:textSize="10sp"
+                android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/gambar"

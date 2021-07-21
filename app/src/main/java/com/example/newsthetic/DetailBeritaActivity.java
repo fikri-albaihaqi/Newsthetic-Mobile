@@ -78,6 +78,7 @@ public class DetailBeritaActivity extends AppCompatActivity {
     tvPublisher.setText(publisherNews);
     tvContent.setText(descriptionNews);
     tvUrl.setText(formatedURL+urlNews);
-    Picasso.get().load(imageNews).fit().centerCrop().into(tvImage);
+//    Picasso.get().load(imageNews).fit().centerCrop().into(tvImage);
+    Picasso.with(this).load(imageNews).fit().into(tvImage);
   }
 }

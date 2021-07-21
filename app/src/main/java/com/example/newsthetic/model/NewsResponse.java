@@ -14,7 +14,13 @@ public class NewsResponse {
   private Integer totalResults;
   @SerializedName("articles")
   @Expose
-  private List<NewsArticle> articles = null;
+  private List<NewsArticle> articles;
+
+  public NewsResponse(String status, Integer totalResults, List<NewsArticle> articles) {
+    this.status = status;
+    this.totalResults = totalResults;
+    this.articles = articles;
+  }
 
   public String getStatus() {
     return status;
