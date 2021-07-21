@@ -20,7 +20,7 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
     ImageView gambar;
     ConstraintLayout newsList;
 
-    public NewsViewHolder(@NonNull @NotNull View itemView) {
+    public NewsViewHolder(View itemView) {
         super(itemView);
 
         judul = itemView.findViewById(R.id.judul);

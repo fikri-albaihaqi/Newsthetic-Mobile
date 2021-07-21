@@ -21,12 +21,13 @@ import com.squareup.picasso.Picasso;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class NewsAdapter extends ListAdapter<NewsResponse, NewsViewHolder> {
     Context context;
-    ArrayList<NewsArticle> articles;
+    List<NewsArticle> articles;
 
-    public NewsAdapter(Context context, ArrayList<NewsArticle> articles,
+    public NewsAdapter(Context context, List<NewsArticle> articles,
                        @NonNull DiffUtil.ItemCallback<NewsResponse> diffCallback) {
         super(diffCallback);
         this.context = context;
